@@ -1,2 +1,0 @@
-# Bingo-Project
-Consultation website
