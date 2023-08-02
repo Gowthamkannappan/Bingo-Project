@@ -9,6 +9,20 @@ COMPLAINT_CHOICES = (
     ('SPECIFIC_COMPLAINT', 'Specific Complaint'),
 )
 
+SERVICE_CHOICES=(
+    ('Single Cyl- Pump', 'Single Cyl- Pump'),
+    ('VE - Pump', 'VE - Pump'),
+    ('Inline 6cyl - Pump', 'Inline 6cyl - Pump'),
+    ('Inline 4cyl - Pump', 'Inline 4cyl - Pump'),
+    ('Inline 3cyl - Pump', 'Inline 3cyl - Pump'),
+    ('VE-EDC - Pump', 'VE-EDC - Pump'),
+    ('CRDI - Pump', 'CRDI - Pump'),
+    ('China - Pump', 'China - Pump'),
+    ('Injectors only', 'Injectors Only'),
+    ('CR-Injectors Only', 'CR-Injectors Only'),
+
+)
+
 VEHICLE_CHOICES = (
     ("Oil Engines", 'Oil Engine'),
     ('Auto', 'Auto'),

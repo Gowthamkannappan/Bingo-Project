@@ -27,8 +27,9 @@ class Complaint(models.Model):                      # To select Nature of Compla
         max_length=250, 
         choices=COMPLAINT_CHOICES
     )
-    complaint_description = models.TextField(
+    complaint_description = models.CharField(
         'Complaint Description',
+        max_length=500,
         blank=True,
         null=True
     )
@@ -54,7 +55,7 @@ class Complaint(models.Model):                      # To select Nature of Compla
         resource_type='video'
     )
     def __str__(self):
-        return f"{self.complaint_type} - {self.text}" 
+        return f"{self.complaint_type} - {self.complaint_description}" 
 
 class Service(models.Model):                        #to Avail what type of service and Book
 
@@ -64,9 +65,13 @@ class Service(models.Model):                        #to Avail what type of servi
     )
     complaint = models.ManyToManyField(
         'Complaint',
-        Complaint,
         blank=True
     )
+    component=models.CharField(
+        "Component",
+        max_length=75,
+        choices=SERVICE_CHOICES
+        )
     name = models.CharField(
         'Customer Name',
         max_length=100
@@ -74,14 +79,10 @@ class Service(models.Model):                        #to Avail what type of servi
     mobile = models.IntegerField(
         'Mobile',
         blank=False,
-        min=1000000000,
-        max=9999999999,
     )
     alternate_mobile = models.IntegerField(
         'Alternate Mobile',
         blank=True,
-        min=1000000000,
-        max=9999999999,
     )
     email = models.EmailField(
         'Email',

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-1l5os*0o@_kqe93ooec&g=m*8*tl_6&dtkwidk55tt-1yw8t1b
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+# CSRF_TRUSTED_ORIGINS=['*']
 
 
 # Application definition
@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'booking',
+    'cloudinary',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
