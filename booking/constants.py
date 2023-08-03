@@ -1,36 +1,15 @@
-APPLICATION_CHOICES = (
-    ('Agriculture', 'Agriculture'),
-    ('Commercial', 'Commercial'),
-    ("Domestic", 'Domestic'),
-)
+from django.db import models
 
-COMPLAINT_CHOICES = (
-    ('GENERAL_CHECKUP', 'General Checkup'),
-    ('SPECIFIC_COMPLAINT', 'Specific Complaint'),
-)
+# Function to validate the postal code 
 
-VEHICLE_CHOICES = (
-    ("Oil Engines", 'Oil Engine'),
-    ('Auto', 'Auto'),
-    ('Bus', 'Bus'),
-    ('Car', 'Car'),
-    ('JCB Loader', 'JCB Loader'),
-    ('Generator', 'Generator'),
-    ('Marine Engines', 'Marine Engines'),
-    ('Tractor', 'Tractor'),
-    ('Tipper', 'Tipper'),
-    ('6 wheel - Truck', '6 wheel - Truck'),
-    ('10 wheel - Truck', '10 wheel - Truck'),
-    ('12 wheel - Truck', '12 wheel - Truck'),
-    ('Tanker Lorry', 'Tanker Lorry'),
-    ('Van', 'Van'),
-    ('Others', 'Others')
-    # Add other choices here
-)
+def validate_postal_code(value):
+    if not value.isdigit() or len(value) != 6:
+        raise models.ValidationError("Postal code must be a 6-digit number.")
 
-QUICK_SERVICE = 'Quick Service'
-REGULAR_SERVICE = 'Regular Service'
-SERVICE_TYPE_CHOICES = (
-    (QUICK_SERVICE, 'Quick Service'),
-    (REGULAR_SERVICE, 'Regular Service'),
+COMPONENT_CHOICES=(
+    ("Diesel-Pump","Diesel-Pump"),
+    ("Crdi","Crdi"),
+    ('Injectors',"Injectors"),
+    ("Starter-Motor","Starter-Motor"),
+    ('Alternator','Alternator')   
 )

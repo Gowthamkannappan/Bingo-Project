@@ -1,21 +1,11 @@
 from django.contrib import admin
-from .models import Vehicle, Complaint, Service
+from .models import Booking
 
-class VehicleAdmin(admin.ModelAdmin):
-    list_display = ['name', 'type', 'application']
-    list_filter = ['type', 'application']
-    search_fields = ['name', 'type', 'application']
+class BookingAdmin(admin.ModelAdmin):
+    list_display = ['name', 'mobile_number', 'city', 'component','booking_date', 'created_at']
+    search_fields = ['name', 'mobile_number','component', 'city']
+    list_filter = ['component', 'booking_date','city']
+    # Add any other configuration options you want for the admin interface
 
-class ComplaintAdmin(admin.ModelAdmin):
-    list_display = ['complaint_type', 'complaint_description', 'email']
-    list_filter = ['complaint_type']
-    search_fields = ['complaint_type', 'complaint_description', 'email']
-
-class ServiceAdmin(admin.ModelAdmin):
-    list_display = ['name', 'vehicle', 'service_booking_date', 'service_type', 'email']
-    list_filter = ['service_type']
-    search_fields = ['name', 'vehicle__name', 'service_booking_date', 'email']
-
-admin.site.register(Vehicle, VehicleAdmin)
-admin.site.register(Complaint, ComplaintAdmin)
-admin.site.register(Service, ServiceAdmin)
+# Register the Booking model with the custom admin class
+admin.site.register(Booking, BookingAdmin)
