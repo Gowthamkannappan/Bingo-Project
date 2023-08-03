@@ -3,5 +3,5 @@ from .views import BookingAdd,BookingList
 
 urlpatterns = [
     path('dc', BookingList.as_view(), name='Booking_list'),
-    path('book', BookingAdd.as_view(), name='Booking_add'),
+    path('addbook', BookingAdd.as_view(), name='Booking_add'),
 ]

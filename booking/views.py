@@ -7,10 +7,10 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 
 class BookingList(generics.ListAPIView):   # ListAPIView Handles the get method 
-    queryset = Booking.objects.order_by('-booking_date').all()
+    queryset = Booking.objects.order_by('-created_at').all()
     serializer_class = BookingSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['item_id']
+    filterset_fields = ['booking_date','component']
 
 
 class BookingAdd(generics.CreateAPIView):     #CreateAPIView handles the post method.
