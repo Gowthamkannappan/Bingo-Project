@@ -54,7 +54,6 @@ class Booking(models.Model):
     address=models.TextField(
         "Address",
         max_length=255,
-        help_text="Please enter your address here",
         blank=True,
         null=True
     )
@@ -83,7 +82,7 @@ class Booking(models.Model):
     remarks=models.TextField(
         "Complaint",
         max_length=595,
-        help_text="Please enter your complaint here"
+        
     )
     
     complaint_image=CloudinaryField(
